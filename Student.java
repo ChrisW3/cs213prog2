@@ -17,18 +17,31 @@ public abstract class Student implements Comparable{
 	//Hint: use the .equals and compareToIgnoreCase methods of the String class to compare fname
 	//and lname; names are not case-sensitive
 	/**
-	 * @param obj
-	 * @return 
+	 * 
+	 * @param obj is the Student object being compared
+	 * @return 0 if students are equal, 1 if > obj, -1 if < obj
 	 */
 	public int compareTo(Object obj) {
-		return 0;
+		Student s = (Student) obj;
+		if(s.fname.compareToIgnoreCase(fname) == 0) {
+			if(s.lname.compareToIgnoreCase(lname) == 0)
+				return 0;
+			else if(s.lname.compareToIgnoreCase(lname) > 0)
+				return 1;
+			else 
+				return -1;
+		}
+		else {
+			if(s.fname.compareToIgnoreCase(fname) > 0)
+				return 1;
+			else 
+				return -1;
+		}
 	}
 	//return a string with fname, lname and credit hours; subclasses will be using this method.
 	public String toString() {
-		return "";
+		return fname + " " + lname + " " + credit;
 	}
 	//compute the tuition due; concrete implementation is required in the subclasses.
-	public abstract int tuitionDue() {
-		return 0;
-	}
+	public abstract int tuitionDue();
 }
