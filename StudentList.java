@@ -65,7 +65,14 @@ public class StudentList {
 		return NOT_FOUND;
 	}
 	
+	/**
+	 * Adds a given Student s to the end of the StudentList.
+	 * First it checks to see if the array is full, if it is it calls grow to increase
+	 * the size of the array, then loops to the end of the array and adds Student s
+	 * @param s  the student to be added to StudentList.
+	 */
 	public void add(Student s) {
+		
 		if(numStudents == studentList.length) {
 			grow();
 		}
@@ -77,6 +84,50 @@ public class StudentList {
 		
 	}
 	
+	/**
+	 * Removes a Student s from the student list if they exist. 
+	 * First it uses the find function to get the index of the student in the student list,
+	 * if it returns -1 then it is not in the array, otherwise it will replace the last element in the array
+	 * with the found index, and set the last array element to null.
+	 * @param s  student to be removed
+	 * @return  true if the student was successfully removed, false if otherwise.
+	 */
+	public boolean remove(Student s) {
+		
+		int index = find(s);
+		if(index != NOT_FOUND) { //Student was found and will be removed
+			int i = 0;
+			while(i < numStudents) {
+				i++;
+			}
+			i--;
+			Student temp = studentList[i];
+			if(i != index) {
+				studentList[index] = temp;
+			}
+			studentList[i] = null;
+			numStudents--;
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Prints each student and their tuition due on their own line, 
+	 * if there are no students, then it will say so.
+	 */
+	public void print() {
+		
+		if(numStudents == 0) {
+			System.out.println("There are no students in the student list");
+		}else {
+			for(int i = 0; i < numStudents; i++) {
+				System.out.println(studentList[i].toString() + "  tuition dude: $" + studentList[i].tuitionDue());
+			}
+			System.out.println("-- end of list --");
+		}
+	}
 	
 	
 	
