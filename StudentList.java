@@ -37,12 +37,50 @@ public class StudentList {
 	 * @return true is empty, false if otherwise.
 	 */
 	public boolean isEmpty() {
+		
 		if(numStudents == 0) {
 			return true;
 		}else {
 			return false;
 		}
 	}
+	
+	/**
+	 * Searches the Student array StudentList for a Student s, and return the index
+	 * of the Student if found.
+	 * @param s the student being compared to
+	 * @return  index of the found student, -1 if it was not found.
+	 */
+	private int find(Student s) {
+		
+		if(numStudents == 0) {
+			return NOT_FOUND;
+		}else {
+			for(int i = 0; i < numStudents; i++) {
+				if(s.compareTo(studentList[i]) == 0) {
+					return i;
+				}
+			}
+		}
+		return NOT_FOUND;
+	}
+	
+	public void add(Student s) {
+		if(numStudents == studentList.length) {
+			grow();
+		}
+		int i = 0;
+		while(i < numStudents) {
+			i++;
+		}
+		studentList[i] = s;
+		
+	}
+	
+	
+	
+	
+	
 	
 	
 }
