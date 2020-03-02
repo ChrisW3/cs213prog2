@@ -8,6 +8,11 @@ public class Instate extends Student{
 	}
 
 	@Override
+	public String toString() {
+		return super.toString() + " " + funds;
+	}
+	
+	@Override
 	public int tuitionDue() {
 		if(credit > 15) {
 			return 433 * 15 + 1441 - funds;
