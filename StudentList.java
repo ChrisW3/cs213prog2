@@ -1,4 +1,3 @@
-
 public class StudentList {
 
 	private final int NOT_FOUND = -1;
@@ -27,7 +26,7 @@ public class StudentList {
 		
 		Student[] tempStudentList = new Student[numStudents + GROW_SIZE];
 		for(int i = 0; i < numStudents; i++) {
-			//tempStudentList[i] = new Student(studentList[i].getName(), studentList[i].getStartDate());
+			tempStudentList[i] = studentList[i];
 		}
 		studentList = tempStudentList;
 	}
@@ -81,7 +80,7 @@ public class StudentList {
 			i++;
 		}
 		studentList[i] = s;
-		
+		numStudents++;
 	}
 	
 	/**
@@ -112,6 +111,22 @@ public class StudentList {
 			return false;
 		}
 	}
+	
+	
+	/**
+	    * Checks to see if the team contains a particular TeamMember m, goes through the
+	    * whole list and returns true if found, false otherwise
+	    * @param m TeamMember that we are checking for in the team array
+	    * @return true if the TeamMember is found, false otherwise
+	    */
+	public boolean contains(Student s)
+	   {
+		  for(int i = 0; i < numStudents; i++) {
+			  if(studentList[i].compareTo(s) == 0)
+				  return true;
+		  }
+	      return false;
+	   } 
 	
 	/**
 	 * Prints each student and their tuition due on their own line, 
