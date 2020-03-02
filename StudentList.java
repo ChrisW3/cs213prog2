@@ -1,3 +1,10 @@
+/**
+The StudentList class is an array of Student objects. It supports polymorphism, which can store 3 different types
+of Students, in state, out of state, or international.
+It is capable of growing once it reaches its full size, and can support any number of students.
+@author Chris Woolley and Kevin Nehrbauer
+*/
+
 public class StudentList {
 
 	private final int NOT_FOUND = -1;
